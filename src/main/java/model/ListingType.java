@@ -1,5 +1,5 @@
 package model;
 
-public enum PropertyType {
+public enum ListingType {
     APARTMENT, HOUSE, PENTHOUSE, LAND, MAISONETTE, GARCONNIÈRE;
 }

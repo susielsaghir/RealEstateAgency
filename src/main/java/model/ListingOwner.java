@@ -2,10 +2,11 @@ package model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity //will create a table in the database & the database will create owners
-@Table(name = "owners")
-public class PropertyOwner {
+@Table(name = "listing_owners")
+public class ListingOwner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +17,16 @@ public class PropertyOwner {
     private String emailAddress;
     private String address;
     private LocalDate dateOfBirth;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    private List<Listing> listings;
+
+    public List<Listing> getListings() {
+        return listings;
+    }
+
+    public void setListings(List<Listing> listings) {
+        this.listings = listings;
+    }
 
     public Long getID() {
         return ID;
