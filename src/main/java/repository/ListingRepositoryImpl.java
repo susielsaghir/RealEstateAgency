@@ -10,6 +10,7 @@ import java.util.List;
 
 public class ListingRepositoryImpl implements ListingRepository {
 
+
     private final EntityManager entityManager;
 
     public ListingRepositoryImpl(EntityManager entityManager) {
@@ -56,6 +57,18 @@ public class ListingRepositoryImpl implements ListingRepository {
             throw e;
         }
     }
+
+    @Override
+    public List<Listing> findAllListingsByDistrict(Long districtId) {
+        try {
+            return entityManager.createQuery("SELECT l FROM Listing l WHERE l.district.id = :districtId",Listing.class)
+                    .setParameter("districtId",districtId)
+                    .getResultList();
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
 }
 
 

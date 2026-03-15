@@ -13,7 +13,6 @@ public class Listing {
     private String title;
     private Double squareMeters;
     private BigDecimal price;
-    private String district;
     private String address;
     private ListingType type; //enum as variable defined
     private Integer yearOfConstruction;
@@ -22,6 +21,11 @@ public class Listing {
     @ManyToOne
     @JoinColumn (name = "listing_owner_id")
     private ListingOwner owner;
+
+    @ManyToOne
+    @JoinColumn (name = "district_id")
+    private District district;
+
 
     public Long getID() {
         return ID;
@@ -55,11 +59,11 @@ public class Listing {
         this.price = price;
     }
 
-    public String getDistrict() {
+    public District getDistrict() {
         return district;
     }
 
-    public void setDistrict(String district) {
+    public void setDistrict(District district) {
         this.district = district;
     }
 
