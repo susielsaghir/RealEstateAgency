@@ -1,11 +1,15 @@
 package service;
 
 import model.Listing;
+import model.ListingType;
 import repository.ListingRepository;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ListingService {
     private final ListingRepository repository;
@@ -34,7 +38,33 @@ public class ListingService {
         if (count==0)
             return BigDecimal.ZERO;
         return total.divide(BigDecimal.valueOf(count),2, RoundingMode.HALF_UP);
-
     }
+
+    public List<Listing> findAllListingsByType(ListingType type) {
+        return repository.findAllListingsByType(type);
+    }
+
+    //seperating the Listings by Type and create groups
+    public Map<String, List<Listing>> groupListingsByType() {
+        List<Listing> all = repository.findAll();
+        Map<String, List<Listing>> map = new HashMap<>();
+
+        for (Listing l : all) {
+            String type = l.getType().toString();
+            if (type == null) continue;
+
+            if (!map.containsKey(type)) {
+                map.put(type, new ArrayList<>());
+            }
+            map.get(type).add(l);
+        }
+        return map;
+    }
+
+
+
+
+
+
 
 }

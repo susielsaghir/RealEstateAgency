@@ -1,6 +1,7 @@
 package repository;
 
 import model.Listing;
+import model.ListingType;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -10,5 +11,7 @@ public interface ListingRepository {
     List<Listing> search (String type, String status, String district, Double maxSize,BigDecimal maxPrice);
 
     List<Listing> findAllListingsByDistrict (Long districtId);
+    List<Listing> findAllListingsByType(ListingType type);
+    List<Listing> findAll();
 
 }

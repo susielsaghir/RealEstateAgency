@@ -11,7 +11,13 @@
   </component>
   <component name="DBNavigator.Project.DatabaseAssistantManager">
     <assistants>
-      <assistant-state connection-id="84dda7f5-084d-4dc0-9269-62442d77dde8" assistant-type="PUBLIC" default-profile-name="" selected-chat-id="" availability="AVAILABLE" acknowledgement="NONE" selected="true">
+      <assistant-state connection-id="84dda7f5-084d-4dc0-9269-62442d77dde8" assistant-type="PUBLIC" default-profile-name="" selected-chat-id="728503182C8E47FE9111D51FCE82F222" availability="AVAILABLE" acknowledgement="ENGAGED" selected="true">
+        <chats>
+          <chat id="728503182C8E47FE9111D51FCE82F222" title="" session-signature="" timestamp="1774372262767">
+            <messages />
+            <context provider="" profile="" model="" action="" interactive="true" />
+          </chat>
+        </chats>
         <tools />
       </assistant-state>
       <assistant-state connection-id="84dda7f5-084d-4dc0-9269-62442d77dde8" assistant-type="SELECT_AI" default-profile-name="" selected-chat-id="" availability="UNAVAILABLE" acknowledgement="NONE">
@@ -37,9 +43,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="84dda7f5-084d-4dc0-9269-62442d77dde8" object-ref="schemas/public/tables/listing_owners" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabasePrerequisiteManager">
     <prerequisites />

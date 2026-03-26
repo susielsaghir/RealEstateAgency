@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import model.Listing;
+import model.ListingType;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -66,6 +67,23 @@ public class ListingRepositoryImpl implements ListingRepository {
                     .getResultList();
         }catch (Exception e){
             throw e;
+        }
+    }
+
+    @Override
+    public List<Listing> findAllListingsByType(ListingType type) {
+        return entityManager.createQuery(
+                        "SELECT * FROM Listing l WHERE l.type = :type",
+                        Listing.class)
+                .setParameter("type", type)
+                .getResultList();
+    }
+    public List<Listing> findAll() {
+        try {
+            return entityManager.createQuery("SELECT l FROM Listing l", Listing.class)
+                    .getResultList();
+        } finally {
+            entityManager.close();
         }
     }
 

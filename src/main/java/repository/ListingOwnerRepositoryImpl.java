@@ -3,7 +3,11 @@ package repository;
 import exceptions.ListingOwnerNotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import model.Listing;
 import model.ListingOwner;
+import model.ListingType;
+
+import java.util.List;
 
 public class ListingOwnerRepositoryImpl implements ListingOwnerRepository {
 
@@ -66,4 +70,5 @@ public class ListingOwnerRepositoryImpl implements ListingOwnerRepository {
     @Override
     public void deleteById(Long id) {
     }
+
 }
